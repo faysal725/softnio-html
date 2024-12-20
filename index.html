@@ -106,7 +106,7 @@
                 class="flex items-center gap-2 pt-2"
               >
                 <div
-                  class="border border-2 w-fit rounded-full cursor-pointer "
+                  class="border border-2 w-fit rounded-full cursor-pointer"
                   onclick="colorSelection()"
                 >
                   <div
@@ -152,7 +152,7 @@
               <section id="size_container" class="flex items-center gap-2 pt-2">
                 <div
                   class="flex items-center gap-2 border p-2 px-4 rounded-md cursor-pointer"
-                  @click="colorNPriceSection(size['size'], size['price'], size['oldPrice'])"
+                  onclick="sizeSelection()"
                 >
                   <span class="text-darkGrey font-bold">S</span>
                   <span class="text-sm text-lightGrey">$69</span>
@@ -160,7 +160,7 @@
 
                 <div
                   class="flex items-center gap-2 border p-2 px-4 rounded-md cursor-pointer"
-                  @click="colorNPriceSection(size['size'], size['price'], size['oldPrice'])"
+                  onclick="sizeSelection()"
                 >
                   <span class="text-darkGrey font-bold">M</span>
                   <span class="text-sm text-lightGrey">$79</span>
@@ -168,7 +168,7 @@
 
                 <div
                   class="flex items-center gap-2 border p-2 px-4 rounded-md cursor-pointer"
-                  @click="colorNPriceSection(size['size'], size['price'], size['oldPrice'])"
+                  onclick="sizeSelection()"
                 >
                   <span class="text-darkGrey font-bold">L</span>
                   <span class="text-sm text-lightGrey">$89</span>
@@ -176,7 +176,7 @@
 
                 <div
                   class="flex items-center gap-2 border p-2 px-4 rounded-md cursor-pointer"
-                  @click="colorNPriceSection(size['size'], size['price'], size['oldPrice'])"
+                  onclick="sizeSelection()"
                 >
                   <span class="text-darkGrey font-bold">XL</span>
                   <span class="text-sm text-lightGrey">$99</span>
@@ -280,7 +280,8 @@
       <section class=""></section>
     </main>
 
-    <script src="./color-controller.js"></script>
-    <script src="./image-coltroller.js"></script>
+    <script src="./color-changer.js"></script>
+    <script src="./image-changer.js"></script>
+    <script src="./size-changer.js"></script>
   </body>
 </html>

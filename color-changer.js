@@ -1,21 +1,21 @@
-
 const colorContainer = document.getElementById("color_container");
 
-function colorSelection(onload=false) {
+function colorSelection(onload = false) {
   removeBorderColors();
 
-  let colorSelector
+  let colorSelector;
 
   if (onload) {
     colorSelector = colorContainer.children[0].children[0];
-  }else{
+  } else {
     colorSelector = event.target.closest("div");
   }
-  
-  
-  const childBackgroundColor = convertToHex(getComputedStyle(colorSelector).backgroundColor);
 
-  // convert to hex code 
+  const childBackgroundColor = convertToHex(
+    getComputedStyle(colorSelector).backgroundColor
+  );
+
+  // convert to hex code
   colorSelector.parentElement.style.borderColor = childBackgroundColor;
   colorSelector.parentElement.classList.add("selected");
   imgChanger(childBackgroundColor);
@@ -30,8 +30,6 @@ function removeBorderColors() {
   }
 }
 
-
-
 function convertToHex(rgbCode) {
   const rgbRegex = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/i;
   const match = rgbRegex.exec(rgbCode);
@@ -41,9 +39,9 @@ function convertToHex(rgbCode) {
     const b = parseInt(match[3], 10).toString(16);
     return `#${r.padStart(2, "0")}${g.padStart(2, "0")}${b.padStart(2, "0")}`;
   }
-  return rgb; 
+  return rgb;
 }
 
 window.addEventListener("load", (event) => {
-  colorSelection(true)
+  colorSelection(true);
 });
