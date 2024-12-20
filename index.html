@@ -192,7 +192,7 @@
               >
                 <div
                   class="border-0 border-r border-gray-300 h-full flex items-center p-2 cursor-pointer text-lightGrey"
-                  @click="decrement"
+                  onclick="decrement()"
                 >
                   <!-- minusIcon  -->
                   <svg
@@ -211,14 +211,15 @@
                   </svg>
                 </div>
                 <div
+                  id="counter_container"
                   class="h-full w-14 flex justify-center items-center text-base text-darkGrey font-semibold"
                 >
-                  12
+                  1
                 </div>
 
                 <div
                   class="border-0 border-l border-gray-300 h-full flex items-center p-2 cursor-pointer text-lightGrey"
-                  @click="increment"
+                  onclick="increment()"
                 >
                   <!-- PlusIcon  -->
                   <svg
@@ -283,5 +284,6 @@
     <script src="./color-changer.js"></script>
     <script src="./image-changer.js"></script>
     <script src="./size-changer.js"></script>
+    <script src="./counter-changer.js"></script>
   </body>
 </html>
