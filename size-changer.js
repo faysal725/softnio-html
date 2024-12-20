@@ -14,7 +14,7 @@ function sizeSelection(onload = false) {
 
   // class add
   sizeSelector.classList.add("border-lightIndigo");
-  sizeSelector.classList.add("selected");
+  sizeSelector.classList.add("selected_size");
   sizeSelector.children[0].classList.add("text-lightIndigo");
   priceContainer.innerText = sizeSelector.children[1].innerText;
 }
@@ -23,7 +23,7 @@ function unSelectSizes() {
   const sizeChildrens = sizeContainer.children;
 
   for (const child of sizeChildrens) {
-    child.classList.remove("selected");
+    child.classList.remove("selected_size");
     child.classList.remove("border-lightIndigo");
     child.children[0].classList.remove("text-lightIndigo");
   }

@@ -1,42 +1,56 @@
-class Cart {
-  constructor() {
-    (this.products = []), (this.total = 0), (this.totalNoOfProducts = 0);
-  }
+// const initialState = {
+//   products: [],
+//   total: 0,
+//   totalNoOfProducts: 0,
+// };
 
-  setProduct(productData) {
-    if (this.products.length == 0) {
-      this.products.push(productData);
-    } else if (this.products.length > 0) {
-      // let isProductExist = this.products.some(
-      //   (product) => product["variationCode"] === productData["variationCode"]
-      // );
+// const addToCart = (state, productData) => {
+//   const existingProductIndex = state.products.findIndex(
+//     (product) => product.variationCode === productData.variationCode
+//   );
 
-      let productIndex = this.products.findIndex(
-        (product) => product["variationCode"] === productData["variationCode"]
-      );
+//   if (existingProductIndex === -1) {
+//     return {
+//       ...state,
+//       products: [...state.products, productData],
+//     };
+//   } else {
+//     const updatedProducts = state.products.map((product, index) =>
+//       index === existingProductIndex
+//         ? { ...product, noOfItem: product.noOfItem + productData.noOfItem }
+//         : product
+//     );
 
-      if (productIndex == -1) {
-        this.products.push(productData);
-      } else {
-        this.products[productIndex]["noOfItem"] =
-          this.products[productIndex]["noOfItem"] + productData["noOfItem"];
-      }
-    }
-  }
+//     return {
+//       ...state,
+//       products: updatedProducts,
+//     };
+//   }
+// };
 
-  calculateTotalPriceNProduct() {
-    let totalPrice = 0;
-    let totalProducts = 0;
-    this.products.map((product, index) => {
-      totalProducts = totalProducts + product["noOfItem"];
-      totalPrice = product["price"] * product["noOfItem"] + totalPrice;
-      console.log(totalPrice, product["noOfItem"]);
-    });
-    console.log(totalPrice);
-    this.total = totalPrice;
-    this.totalNoOfProducts = totalProducts;
-  }
-  getProducts() {
-    return this.products;
-  }
-}
+// const calculateTotalPrice = (products) => {
+//   const total = products.reduce(
+//     (acc, product) => acc + product.price * product.noOfItem,
+//     0
+//   );
+//   const totalNoOfProducts = products.reduce(
+//     (acc, product) => acc + product.noOfItem,
+//     0
+//   );
+
+//   return { total, totalNoOfProducts };
+// };
+
+// const getCartState = (state) => state;
+
+// const cartReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case 'ADD_TO_CART':
+//       return addToCart(state, action.payload);
+//     case 'CALCULATE_TOTAL':
+//       const { total, totalNoOfProducts } = calculateTotalPrice(state.products);
+//       return { ...state, total, totalNoOfProducts };
+//     default:
+//       return state;
+//   }
+// };

@@ -1,54 +1,62 @@
-const productName = document.getElementById("product_name");
-let price = priceContainer.innerText;
-let selectedSize = gettingSelectedItem(sizeContainer)
-let imgSrc = imgContainer.src;
-
+let initialState = {
+  products: [],
+  total: 0,
+  totalNoOfProducts: 0,
+};
 
 function addProductToStore() {
-  // let productData = {
-  //   name: form.value.name,
-  //   imgSrc: form.value.imgSrc,
-  //   noOfItem: form.value.noOfItem,
-  //   color: form.value.color,
-  //   size: form.value.size,
-  //   price: form.value.price,
-  //   oldPrice: form.value.oldPrice,
-  //   variationCode: form.value.color + "-" + form.value.size,
-  // };
-  // setProduct(productData);
-  // calculateTotalPriceNProduct();
+  const name = document.getElementById("product_name").innerText;
+  let price = priceContainer.innerText;
+  let size = document.querySelector(".selected_size").children[0].innerText;
+  let color = convertToHex(
+    getComputedStyle(document.querySelector(".selected_color").children[0])
+      .backgroundColor
+  );
+  let imgSrc = imgContainer.src;
+  let noOfItem = counterContainer.innerText;
+  let variationCode = color + "-" + size;
+
+  let productData = {
+    name: name,
+    imgSrc: imgSrc,
+    noOfItem: Number(noOfItem),
+    color: color,
+    size: size,
+    price: Number(price.substring(1)),
+    variationCode: variationCode,
+  };
+
+  setProduct(productData);
+  calculateTotalPriceNProduct();
 }
 
-function gettingSelectedItem(domElement) {
-  const container = domElement.children;
+function setProduct(productData) {
+  console.log(initialState.products.length);
+  if (initialState.products.length == 0) {
+    initialState.products.push(productData);
+  } else if (initialState.products.length > 0) {
+    let productIndex = initialState.products.findIndex(
+      (product) => product["variationCode"] === productData["variationCode"]
+    );
 
-
-  for (const child of container) {
-    //   child.style.borderColor = "";
-    //   child.classList.remove("selected");
-    
-console.log(child.classList.contains('selected'))
-    if(child.classList.contains('selected')){
-        return child
+    if (productIndex == -1) {
+      initialState.products.push(productData);
+    } else {
+      initialState.products[productIndex]["noOfItem"] =
+        initialState.products[productIndex]["noOfItem"] +
+        productData["noOfItem"];
     }
   }
-  return null
 }
 
-
-// function gettingSelectedItem(domElement) {
-//     const container = domElement.children;
-//     let selectedIndex;
-  
-  
-//     console.log(container);
-  
-//     container.map((child, index) => {
-//       let isSelected = child.classList.some("selected");
-//       if (isSelected) {
-//         selectedIndex = index;
-//       }
-//     });
-    
-//     return container[selectedIndex];
-//   }
+function calculateTotalPriceNProduct() {
+  let totalPrice = 0;
+  let totalProducts = 0;
+  initialState.products.map((product, index) => {
+    totalProducts = totalProducts + product["noOfItem"];
+    totalPrice = product["price"] * product["noOfItem"] + totalPrice;
+    console.log(totalPrice, product["noOfItem"]);
+  });
+  initialState.total = totalPrice;
+  initialState.totalNoOfProducts = totalProducts;
+}

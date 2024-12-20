@@ -17,7 +17,7 @@ function colorSelection(onload = false) {
 
   // convert to hex code
   colorSelector.parentElement.style.borderColor = childBackgroundColor;
-  colorSelector.parentElement.classList.add("selected");
+  colorSelector.parentElement.classList.add("selected_color");
   imgChanger(childBackgroundColor);
 }
 
@@ -26,7 +26,7 @@ function removeBorderColors() {
 
   for (const container of colorContainers) {
     container.style.borderColor = "";
-    container.classList.remove("selected");
+    container.classList.remove("selected_color");
   }
 }
 
@@ -39,7 +39,7 @@ function convertToHex(rgbCode) {
     const b = parseInt(match[3], 10).toString(16);
     return `#${r.padStart(2, "0")}${g.padStart(2, "0")}${b.padStart(2, "0")}`;
   }
-  return rgb;
+  return rgbCode;
 }
 
 window.addEventListener("load", (event) => {
