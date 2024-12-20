@@ -28,10 +28,10 @@ function addProductToStore() {
 
   setProduct(productData);
   calculateTotalPriceNProduct();
+  changeNoOfItem();
 }
 
 function setProduct(productData) {
-  console.log(initialState.products.length);
   if (initialState.products.length == 0) {
     initialState.products.push(productData);
   } else if (initialState.products.length > 0) {
@@ -55,7 +55,6 @@ function calculateTotalPriceNProduct() {
   initialState.products.map((product, index) => {
     totalProducts = totalProducts + product["noOfItem"];
     totalPrice = product["price"] * product["noOfItem"] + totalPrice;
-    console.log(totalPrice, product["noOfItem"]);
   });
   initialState.total = totalPrice;
   initialState.totalNoOfProducts = totalProducts;

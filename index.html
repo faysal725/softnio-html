@@ -271,15 +271,153 @@
 
       <!-- checkout btn  -->
       <button
-        class="text-xs font-bold text-darkGrey bg-darkYellow px-4 p-2 rounded-full fixed bottom-10 right-[50%] flex items-center justify-center gap-2 transition-all duration-200 translate-y-0"
-        onclick="openModal = true"
+        class="text-xs font-bold text-darkGrey bg-darkYellow px-4 p-2 rounded-full fixed bottom-10 right-[50%] flex items-center justify-center gap-2 transition-all duration-200 translate-y-96"
+        onclick="openModal()"
       >
         Checkout
-        <span class="bg-white px-1.5">1</span>
+        <span class="bg-white px-1.5 no_of_item_container">0</span>
       </button>
 
       <!-- modal  -->
-      <section class=""></section>
+      <div
+      id="modal_container"
+        class="fixed top-0 w-full h-full right-0 hidden justify-center items-center"
+      >
+        <!-- backdrop -->
+        <section
+        onclick="closeModal()"
+          class="absolute top-0 w-full h-full right-0 bg-slate-500/50 z-10"
+        ></section>
+
+        <!-- table  -->
+        <section  class="bg-white min-w-32 p-4 py-10 z-20 rounded-lg">
+          <div class="px-4 sm:px-6 lg:px-8">
+            <div class="sm:flex sm:items-center">
+              <div class="sm:flex-auto">
+                <h1 class="text-lg font-semibold text-darkGrey">Your Cart</h1>
+              </div>
+            </div>
+            <div class="mt-2 flow-root">
+              <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div
+                  class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 max-h-[600px] overflow-y-scroll scrollbar-style"
+                >
+                  <table class="min-w-full divide-y divide-gray-300">
+                    <thead>
+                      <tr>
+                        <th
+                          scope="col"
+                          class="py-3.5 pl-4 pr-3 text-left text-sm font-thin text-lightGrey sm:pl-0"
+                        >
+                          Item
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-3 py-3.5 text-center text-sm font-thin text-lightGrey"
+                        >
+                          Color
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-3 py-3.5 text-center text-sm font-thin text-lightGrey"
+                        >
+                          Size
+                        </th>
+                        <th
+                          scope="col"
+                          class="px-3 py-3.5 text-center text-sm font-thin text-lightGrey"
+                        >
+                          Qnt
+                        </th>
+
+                        <th
+                          scope="col"
+                          class="px-3 py-3.5 text-right text-sm font-thin text-lightGrey"
+                        >
+                          Price
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                    id="table_container"
+                      class="divide-y divide-gray-200 max-h-28 overflow-y-auto"
+                    >
+                      <tr >
+                        <!-- <td
+                          class="whitespace-nowrap py-4 pl-4 pr-3 sm:pl-0 flex items-center gap-2"
+                        >
+                          <img
+                            :src="product.imgSrc"
+                            alt=""
+                            class="h-8 w-8 object-cover rounded"
+                          />
+                          <p class="text-sm font-base text-darkGrey">
+                            some name
+                          </p>
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-3 py-4 text-sm text-darkGrey text-center"
+                        >
+                          product.color
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-3 py-4 text-sm text-darkGrey text-center font-semibold"
+                        >
+                          34
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-3 py-4 text-sm text-darkGrey text-center font-semibold"
+                        >
+                          34
+                        </td>
+                        <td
+                          class="whitespace-nowrap px-3 py-4 text-sm text-darkGrey font-semibold text-right"
+                        >
+                          $56
+                        </td> -->
+                      </tr>
+
+
+                    </tbody>
+                    <tr>
+                      <td
+                        class="whitespace-nowrap py-4 text-base text-darkGrey font-medium text-left"
+                        colspan="3"
+                      >
+                        Total
+                      </td>
+                      <td
+                        id="total_qty_container"
+                        class="whitespace-nowrap px-3 py-4 text-base text-darkGrey font-medium text-center"
+                      >
+                        2
+                      </td>
+                      <td
+                        id="total_price_container"
+                        class="whitespace-nowrap pl-3 py-4 text-base text-darkGrey font-medium text-right"
+                      >
+                        $100
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="flex justify-end gap-2 pt-4">
+                  <button
+                    class="text-xs p-2.5 border border-lightGrey text-darkGrey rounded-sm px-4 bg-white font-semibold"
+                  >
+                    Continue Shopping
+                  </button>
+                  <button
+                    class="text-xs p-2.5 bg-lightIndigo rounded-sm text-white px-4"
+                  >
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <script src="./color-changer.js"></script>
@@ -288,5 +426,6 @@
     <script src="./counter-changer.js"></script>
     <script src="./cart-handler.js"></script>
     <script src="./store-handler.js"></script>
+    <script src="./modal-handler.js"></script>
   </body>
 </html>
