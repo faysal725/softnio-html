@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+
+    --color-lightYellow: #FFD200;
+    --color-darkYellow: #FFBB5A;
+    --color-darkGrey: #364A63;
+    --color-lightIndigo: #6576FF;
+    --color-lightGrey: #8091A7;
+
+
+    
+  }
+}
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+input::placeholder {
+  text-align:end;
+}
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.swiper-pagination-bullet-active{
+  background-color: var(--color-primary) !important;
+}
+/* 
+.swiper-pagination-bullet{
+  background-color: var(--color-tab) ;
+
+} */
+
+._marqueeSlider_1htck_3:hover{
+  overflow: visible !important;
+}
+
+.outline-text{
+  background: black;
+  background-clip: text;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: calc(1em / 36);
+  -webkit-background-clip: text;
+}
+
+
+/* Apply the animation to elements with the .text-animation class */
+.text-animation {
+  animation: translateYAnimation 3s ease-out infinite;
+}
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* for Internet Explorer and Edge */
+  scrollbar-width: none;  /* for Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scrollbar-style::-webkit-scrollbar {
+  height: 2px;
+  width: 4px;
+  }
+  
+  /* Track */
+  .scrollbar-style::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(187, 187, 187); 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .scrollbar-style::-webkit-scrollbar-thumb {
+    background:  var(--color-lightIndigo);
+    border-radius: 90px;
+    
+  }
+  
+  .scrollbar-style::-webkit-scrollbar-corner {
+
+  }
+  /* Handle on hover */
+  .scrollbar-style::-webkit-scrollbar-thumb:hover {
+    background:  var(--color-darkGrey)
+  }
+
+/* .slider-connect{
+  background-color: #FF774D  !important;
+}
+
+.slider-touch-area{
+  border:2px solid #FF774D  !important;
+  border-radius: 100%;
+} */
+
+.slider-tooltip{
+  display: none !important;
+}
+
+
+/* datepicker classes  */
+.dp__input{
+  font-size: 14px !important;
+}
+
+
+.Toastify__progress-bar--info{
+  background: var(--color-primary) !important
+}
+
+
+
+
+/* Define custom keyframes for the translateYAnimation */
+@keyframes translateYAnimation {
+  0% {
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+  25% {
+    opacity: 25%;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+  75% {
+    opacity: 25%;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0%;
+  }
+}
