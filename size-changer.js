@@ -1,7 +1,6 @@
 const sizeContainer = document.getElementById("size_container");
 const priceContainer = document.getElementById("product_saleprice");
 
-
 function sizeSelection(onload = false) {
   unSelectSizes();
 
@@ -17,8 +16,7 @@ function sizeSelection(onload = false) {
   sizeSelector.classList.add("border-lightIndigo");
   sizeSelector.classList.add("selected");
   sizeSelector.children[0].classList.add("text-lightIndigo");
-  priceContainer.innerText = sizeSelector.children[1].innerText
-  console.log(sizeSelector.children[1])
+  priceContainer.innerText = sizeSelector.children[1].innerText;
 }
 
 function unSelectSizes() {
